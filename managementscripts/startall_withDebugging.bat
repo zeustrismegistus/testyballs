@@ -1,0 +1,4 @@
+start startservice_withDebugging.bat
+start startNodeInspector.bat
+start startNodeInspectorClient.bat
+start startclient.bat 3000

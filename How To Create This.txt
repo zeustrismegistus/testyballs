@@ -1,0 +1,33 @@
+1.  open command line window in node.exe directory
+2.  install required npm components from command line (not node.exe command line)
+		eg.     npm install node-inspector
+				npm install express
+				npm install chokidar
+				npm install body-parser
+
+		this will install the dependencies to \node_modules
+
+3.  write the node service code (eg. service.js)
+
+4.  start via cmdline
+		node service.js // kicks off the service
+        
+	test service
+        eg. http://localhost:3000/
+        http://localhost:3000/sanity	
+		
+5.	debug via cmdline
+		node --debug-brk service.js //kicks off a debuggable service
+			
+	in another cmdline:
+		node-inspector &
+			
+	browse to debugger:
+		http://127.0.0.1:8080/?port=5858
+    
+	test service
+        eg. http://localhost:3000/
+        http://localhost:3000/sanity	
+	
+	
+		

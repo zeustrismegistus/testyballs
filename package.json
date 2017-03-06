@@ -1,0 +1,34 @@
+{
+  "name": "bootstrapper",
+  "version": "1.0.0",
+  "description": "watches file system at config.watchPaths for .js files to be added.  upon adding a file, it then packages that as a node service at the location config.deployPath + filename",
+  "main": "service.js",
+  "scripts": {
+    "start": "node service.js"
+  },
+  "author": "zeustrismegistus@tutanota.com",
+  "license": "GPL3",
+  "dependencies": {
+    "chokidar": "latest",
+    "express": "^4.13.4",
+    "fs-extra": "^2.0.0",
+    "node-inspector": "^0.12.8"
+  },
+  "config": {
+    "watchPath": "./watching",
+    "deployPath": "./deploy",
+    "port": 3000,
+    "deployPortStart": 3001,
+    "debug": true,
+    "launchClientOnDeploy": true
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeustrismegistus/testyballs"
+  },
+  "bugs": {
+    "url": "https://github.com/zeustrismegistus/testyballs/issues"
+  },
+  "homepage": "https://github.com/zeustrismegistus/testyballs"
+}
