@@ -9,18 +9,29 @@
   "author": "zeustrismegistus@tutanota.com",
   "license": "GPL3",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "chokidar": "latest",
     "express": "^4.13.4",
+    "express-promise": "^0.4.0",
     "fs-extra": "^2.0.0",
-    "node-inspector": "^0.12.8"
+    "node-inspector": "^0.12.8",
+    "shelljs": "^0.7.6"
   },
   "config": {
     "watchPath": "./watching",
-    "deployPath": "./deploy",
+    "spawnPath": "./deploy",
     "port": 3000,
-    "deployPortStart": 3001,
-    "debug": true,
-    "launchClientOnDeploy": true
+    "spawnPortStart": 3001,
+	"spawnDebugPortStart" : 5859,
+	"debugPort": 5858,
+	"runDebugEnabled" : true, 
+	"runDebuggerService" : true, 
+	"runDebuggerClient" : true, 
+	"runClient" : true,
+	"spawnDebugEnabled" : true, 
+	"spawnDebuggerService" : true, 
+	"spawnDebuggerClient" : true, 
+	"spawnClient" : true
   },
   "devDependencies": {},
   "repository": {
