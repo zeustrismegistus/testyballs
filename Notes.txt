@@ -1,0 +1,41 @@
+Run this service by running ./scripts/startService.bat 
+
+(similarly, other batch files in the scripts directory kick off other tasks like
+starting the debugger, starting a debugger client, starting a service client.)  
+
+This service looks in the "watching" directory (configurable within package.json) for
+js files to be added.  It converts these into functioning node services and the 
+associated management scripts also found in the /scripts directory.  
+	
+The service behaviour is configured in package.json	
+
+"config": {
+    "watchPath": "./watching", 	//the directory to look for scripts
+    "spawnPath": "./deploy",	//the directory to create services
+    "port": 3000,				//the port the service runs on.  we are keeping an endpoint up for and eventual api.
+    "spawnPortStart": 3001,		//the starting number port the spawned services will run on
+	"spawnDebugPortStart" : 5859,	//the starting number port the spawned debug services will run on
+	"debugPort": 5858,			//the debug port of the current service.  This is boilerplate.
+	"runDebugEnabled" : true, 	//boilerplate config for a service to facilitate debugging and external management
+	"runDebuggerService" : true, //boilerplate config for a service to facilitate debugging and external management
+	"runDebuggerClient" : true, //boilerplate config for a service to facilitate debugging and external management
+	"runClient" : true,			//boilerplate config for a service to facilitate debugging and external management
+	"spawnDebugEnabled" : true, 	//when spawning a service, do we enable the debug hooks?
+	"spawnDebuggerService" : true, 	//when spawning a service do we run a debugger service (ie. node inspector)
+	"spawnDebuggerClient" : true, 	//when spawning a service do we run a debugger client browser tab
+	"spawnClient" : true			//when spawning a service do we run a browser client pointed at the service endpoint?
+  }
+  
+Further Extensions:
+-a UI hosted on the endpoint enabling management of deployed services
+	-putting conditions around the existence of the service
+	-reporting
+	-hook up to the consoles of each deployed service
+	
+Further Concepts to Explore:
+	-services that spawn services by creating service files and dropping them in the watchPath
+		-this leads to long conditional expressions that describe when particular services need to be up,
+			and their actual deployment configuration.  basically promise up capacity for a particular workflow,
+			such that when one service is finished its job, pull up the next one needed on demand, and invoke it.  
+			this would enable a unit of work kinda worker promise.
+			
